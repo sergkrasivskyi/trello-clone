@@ -1,0 +1,12 @@
+:root {
+    --dynamic-background-color: hsl(196,13%,33.9%);
+    --dynamic-button-background-color: rgba(255, 255, 255, 0.2);
+    --dynamic-button-background-color-hovered: rgba(255, 255, 255, 0.3);
+    --dynamic-button-background-color-pressed: rgba(255, 255, 255, 0.4);
+    --dynamic-icon-color: #FFFFFF;
+    --dynamic-text-color: #FFFFFF;
+    --dynamic-text-color-transparent: hsla(0,0%,100%,0.16);
+    --dynamic-background-color-transparent: hsla(196,13%,38.9%,0.9);
+    
+    --bg-card: rgb(235, 236, 240);
+}

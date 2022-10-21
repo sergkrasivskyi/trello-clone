@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Стилі колонки */
+/* .list-wrapper {
+  & .list {
+    & .list-header {
+      & .list-header-target {
+      }
+    }
+    & .list-cards {
+    }
+    & .card-composer {
+    }
+  }
+} */
+.list-wrapper {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+  margin: 0 4px;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 272px;
+}
+.list {
+  /* background-color: var(--ds-background-accent-gray-subtlest, hsl(228, 14%, 93%)); */
+  background-color: var(--bg-card, hsl(228, 14%, 93%));
+  border-radius: 3px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  position: relative;
+  white-space: normal;
+  width: 100% !important;
+}
+/* list-header */
+.list-header {
+  flex: 0 0 auto;
+  min-height: 20px;
+  padding: 10px 8px;
+  position: relative;
+}
+.list-header-target {
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.list-header-name-assist {
+  display: none;
+}
+
+textarea.mod-list-name {
+  background: #0000;
+  border-radius: 3px;
+  box-shadow: none;
+  font-weight: 600;
+  height: 20px;
+  margin: -4px 0;
+  max-height: 256px;
+  min-height: 20px;
+  padding: 4px 8px;
+  resize: none;
+}
+/* меню справа - три крапки */
+.list-header-extras {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  z-index: 1;
+}
+
+/* --- / header */
+
+/* list-card */
+.list-card {
+  background-color: var(--ds-surface-raised, #fff);
+  border-radius: 3px;
+  box-shadow: var(--ds-shadow-raised, 0 1px 0 #091e4240);
+  cursor: pointer;
+  display: block;
+  margin-bottom: 8px;
+  max-width: 300px;
+  min-height: 20px;
+  position: relative;
+  text-decoration: none;
+  z-index: 0;
+}
+.list-card-title {
+  word-wrap: break-word;
+  clear: both;
+  color: var(--ds-text, #172b4d);
+  display: block;
+  margin: 0 0 4px;
+  overflow: hidden;
+  text-decoration: none;
+}
