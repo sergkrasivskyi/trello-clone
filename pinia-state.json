@@ -1,0 +1,84 @@
+{
+  "column": {
+    "title": "",
+    "columnsList": [
+      {
+        "id": 1,
+        "title": "Just Do It1",
+        "list": [
+          {
+            "row": 1,
+            "text": "First card"
+          },
+          {
+            "row": 2,
+            "text": "Second card"
+          },
+          {
+            "row": 3,
+            "text": "Third card"
+          },
+          {
+            "row": 4,
+            "text": "Fouth card"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Just Do It2",
+        "list": [
+          {
+            "row": 1,
+            "text": "First card"
+          },
+          {
+            "row": 2,
+            "text": "Second card"
+          },
+          {
+            "row": 3,
+            "text": "Third card"
+          },
+          {
+            "row": 4,
+            "text": "Fouth card"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Just Do It3",
+        "list": [
+          {
+            "row": 1,
+            "text": "First card"
+          },
+          {
+            "row": 2,
+            "text": "Second card"
+          },
+          {
+            "row": 3,
+            "text": "Third card"
+          },
+          {
+            "row": 4,
+            "text": "Fouth card"
+          }
+        ]
+      }
+    ],
+    "columnsList2": [
+      {
+        "title": "hello1"
+      },
+      {
+        "title": "hello2"
+      },
+      {
+        "title": "hello3"
+      }
+    ]
+  }
+}

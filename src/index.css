@@ -23,6 +23,7 @@
   vertical-align: top;
   white-space: nowrap;
   width: 272px;
+  /* background-color: var(--bg-card, hsl(228, 14%, 93%)); */
 }
 .list {
   /* background-color: var(--ds-background-accent-gray-subtlest, hsl(228, 14%, 93%)); */
@@ -34,7 +35,7 @@
   max-height: 100%;
   position: relative;
   white-space: normal;
-  width: 100% !important;
+  /* width: 100% !important; */
 }
 /* list-header */
 .list-header {
@@ -42,6 +43,10 @@
   min-height: 20px;
   padding: 10px 8px;
   position: relative;
+}
+.list-header-wrapper{
+  overflow: hidden;
+  /* max-height: 1rem; */
 }
 .list-header-target {
   bottom: 0;
@@ -55,18 +60,30 @@
   display: none;
 }
 
+
+
 textarea.mod-list-name {
   background: #0000;
   border-radius: 3px;
   box-shadow: none;
   font-weight: 600;
-  height: 20px;
-  margin: -4px 0;
+  height: 28px;
+  /* margin: -4px 0; */
   max-height: 256px;
   min-height: 20px;
-  padding: 4px 8px;
+  /* padding: 4px 8px; */
   resize: none;
 }
+/* textarea.mod-list-name.is-editing, */
+textarea.mod-list-name:focus {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  height: 28px;
+  background-color: var(--ds-background-input,#fff); 
+  box-shadow: inset 0 0 0 2px var(--ds-border-focused, #0879bF);
+}
+
+
 /* меню справа - три крапки */
 .list-header-extras {
   position: absolute;
