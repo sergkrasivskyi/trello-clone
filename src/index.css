@@ -35,6 +35,7 @@
   max-height: 100%;
   position: relative;
   white-space: normal;
+  padding-inline: 0.5rem;
   /* width: 100% !important; */
 }
 /* list-header */
@@ -44,7 +45,7 @@
   padding: 10px 8px;
   position: relative;
 }
-.list-header-wrapper{
+.list-header-wrapper {
   overflow: hidden;
   /* max-height: 1rem; */
 }
@@ -59,8 +60,6 @@
 .list-header-name-assist {
   display: none;
 }
-
-
 
 textarea.mod-list-name {
   background: #0000;
@@ -79,10 +78,9 @@ textarea.mod-list-name:focus {
   overflow: hidden;
   overflow-wrap: break-word;
   height: 28px;
-  background-color: var(--ds-background-input,#fff); 
-  box-shadow: inset 0 0 0 2px var(--ds-border-focused, #0879bF);
+  background-color: var(--ds-background-input, #fff);
+  box-shadow: inset 0 0 0 2px var(--ds-border-focused, #0879bf);
 }
-
 
 /* меню справа - три крапки */
 .list-header-extras {
@@ -95,6 +93,9 @@ textarea.mod-list-name:focus {
 /* --- / header */
 
 /* list-card */
+.card-composer {
+  padding-bottom: 8px;
+}
 .list-card {
   background-color: var(--ds-surface-raised, #fff);
   border-radius: 3px;
@@ -116,4 +117,59 @@ textarea.mod-list-name:focus {
   margin: 0 0 4px;
   overflow: hidden;
   text-decoration: none;
+}
+.list-card-details {
+  overflow: hidden;
+  padding: 6px 8px 2px;
+  position: relative;
+  z-index: 10;
+}
+.list-card-labels {
+  overflow: auto;
+  position: relative;
+}
+
+textarea.list-card-composer-textarea,
+textarea.list-card-composer-textarea:focus {
+  /* background: none; */
+  /* border: none; */
+  /* box-shadow: none; */
+  height: auto;
+  margin-bottom: 4px;
+  max-height: 162px;
+  min-height: 54px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+.card-composer-container {
+  display: flex;
+  justify-content: space-between;
+  max-height: 38px;
+  min-height: 38px;
+}
+.open-card-composer {
+  border-radius: 3px;
+  color: var(--ds-text-subtle, #5e6c84);
+  display: block;
+  flex: 1 0 auto;
+  margin: 2px 0 8px 8px;
+  padding: 4px 8px;
+  position: relative;
+  text-decoration: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* button after textarea */
+
+.atlaskit-portal-container .nch-button--primary, body .nch-button--primary {
+    background-color: var(--ds-background-brand-bold,#0079bf);
+    border: none;
+    box-shadow: none;
+    color: var(--ds-text-inverse,#fff);
+}
+.atlaskit-portal-container .nch-button--primary:hover, body .nch-button--primary:hover {
+    background-color: var(--ds-background-brand-bold-hovered,#026aa7);
+    border: none;
+    box-shadow: none;
+    color: var(--ds-text-inverse,#fff);
 }

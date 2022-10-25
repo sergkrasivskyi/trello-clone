@@ -1,12 +1,13 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import TheColumn from '@/components/TheColumn.vue'
-// import TheItem from '@/components/TheItem.vue'
+import AddItem from '@/components/AddItem.vue'
 
 import { useColumnsStore } from '@/stores/column.js'
 import { useCardsStore } from '@/stores/cards.js'
 const columnsStore = useColumnsStore()
 const cardsStore = useCardsStore()
+
 </script>
 
 <template>
@@ -15,11 +16,11 @@ const cardsStore = useCardsStore()
       v-for="column in columnsStore.columnsList"
       :key="column.id"
       :column="column"
-      :cards="cardsStore.cardsList"> 
+      :cards="cardsStore.cardsList"
+      > 
     </the-column> 
-    <!--   :title="column.title"
-      :currentColumn="column.columnId" -->
-  
+    <add-item
+     :isNewColumn="true"/>
   </div>
 
   <!-- <RouterView /> -->

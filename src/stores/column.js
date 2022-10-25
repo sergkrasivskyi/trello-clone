@@ -4,6 +4,7 @@ import { defineStore } from "pinia";
 export const useColumnsStore = defineStore("columns", () => {
   const title = ref('');
 
+  const columnItem = { id: 4, title: "Just Do It1", columnId: 4};
   const columnItem1 = ref({
     id: 1,
     title: "Just Do It1",
@@ -37,7 +38,12 @@ export const useColumnsStore = defineStore("columns", () => {
     //   { row: 4, text: "Fouth card" },
     // ],
   });
-  const columnsList = ref([columnItem1.value, columnItem2.value, columnItem3.value]);
+  const columnsList = ref([
+    columnItem1.value,
+    columnItem2.value,
+    columnItem3.value,
+    columnItem,
+  ]);
   const columnsList2 = ref([
     { title: "hello1" },
     { title: "hello2" },
@@ -47,7 +53,20 @@ export const useColumnsStore = defineStore("columns", () => {
   function increment() {
     count.value++;
   }
-
+  // const newColumnItem = computed(() => {
+  //   return { columnId: columnsList.value.length + 1,
+  //   id: columnsList.value.length + 1}
+    // newColumnItem.columnId = columnsList.value.length + 1
+    // newColumnItem.id = columnsList.value.length + 1
+  // },
+  // );
+  function addColumn(title) {
+    const result = {}
+    result.columnId = columnsList.value.length + 1;
+    result.id = columnsList.value.length + 1
+    result.title = title;
+    columnsList.value.push({ ...result });
+  }
   return {
     // title,
     columnsList,
@@ -56,5 +75,7 @@ export const useColumnsStore = defineStore("columns", () => {
     // columnItem2,
     // columnItem3,
     increment,
+    addColumn,
+    // newColumnItem,
   };
 });

@@ -17,7 +17,10 @@
         :key="card.row"
         :card="card"
         />
-    
+      <add-item
+        :isNewColumn="false"
+        :columnId="column.id"
+      />
     </div>
   </div>
 
@@ -26,11 +29,12 @@
 
 <script>
 import TheItem from '@/components/TheItem.vue'
+import AddItem from '@/components/AddItem.vue'
 
 
 export default {
   name: 'TheColumn',
-  components: {TheItem},
+  components: {TheItem, AddItem},
   props: {
     title: {type: String,
             default:'Нужно сделать'},
@@ -51,11 +55,15 @@ export default {
 
     // }
     columnCards() {
-      // const result = this.cards.filter(card => card.columnId == this.column.columnId)
+      const result = this.cards.filter(card => card.columnId === this.column.columnId)
+      let i = 1;
+      result.forEach(card => card.row = i++)
       // console.log(this.cards);
       // console.log(result);
-      return this.cards.filter(card => card.columnId === this.column.columnId)
+      // this.cards.filter(card => card.columnId === this.column.columnId)
+      return result
     }
+
   },
   methods: {
     toEdit() {
