@@ -6,8 +6,7 @@
           <!-- :class="{'is-editing': isEdit}" -->
           <!-- @click="toEdit" -->
           <textarea class="list-header-name mod-list-name"
-          height="130"
-          rows="1" cols="32"
+          
           v-model="column.title"
           >
           </textarea>

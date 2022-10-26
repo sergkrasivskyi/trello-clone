@@ -1,7 +1,7 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 
-import { useColumnsStore } from "@/stores/column";
+import { useColumnsStore } from "@/stores/columns";
 import {groupBy} from 'lodash'
 
 // завантажити з axios дату про users та вивести її в аплікації
@@ -39,7 +39,7 @@ export const useCardsStore = defineStore("cards", () => {
     return result;
   });
 
-  function addCard(newCard) {
+  function addCardTitle(newCard) {
     cardsList.value.push({ ...newCard });
   }
   function moveCards(direction, card, cardList) {
@@ -72,6 +72,6 @@ export const useCardsStore = defineStore("cards", () => {
     // columnItem2,
     // columnItem3,
     // increment,
-    addCard,
+    addCardTitle,
   };
 });

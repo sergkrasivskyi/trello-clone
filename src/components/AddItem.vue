@@ -1,34 +1,38 @@
 <template>
   <div class="card-composer" v-show="isAdd">
     <div class="list-card">
-      <div class="list-card-details">
-        <textarea class="list-card-composer-textarea" placeholder="Ввести заголовок для этой карточки"
-          ref="addingItem"
-          v-model="itemText"></textarea>
-
-      </div>
+      <the-text-area
+        :modelValue="itemText"
+        placeholder="Enter the headline for this card"
+        @change:modelValue="setItemText"
+      ></the-text-area>
       <div class="cc-controls u-clearfix">
-        <div class="cc-controls-section"><input class="nch-button nch-button--primary confirm mod-compact js-add-card"
+        <div class="cc-controls-section">
+          <input class="nch-button nch-button--primary confirm mod-compact js-add-card" 
             type="submit" value="Добавить карточку" 
-              @click="addItem"
-              ><a class="icon-lg icon-close dark-hover js-cancel" href="#"></a>
+            @click="addItem">
+          <close-icon 
+          @click="closeAddMode"/>
         </div>
-        <div class="cc-controls-section mod-right"><a
-            class="icon-lg icon-overflow-menu-horizontal dark-background-hover js-cc-menu" href="#"></a></div>
       </div>
     </div>
   </div>
   <div class="card-composer-container" v-show="!isAdd" @click.stop="isAdd = true">
+    <add-icon/>
     <a class="open-card-composer" href="#" ref="card"
     >{{ itemTitle }}</a>
   </div>
 </template>
 <script>
-import { mapStores} from 'pinia'
+import { mapStores, mapActions} from 'pinia'
 import { useCardsStore } from '@/stores/cards'
-import { useColumnsStore } from '@/stores/column'
+import { useColumnsStore } from '@/stores/columns'
+import AddIcon from '@/components/icons/AddIcon.vue'
+import CloseIcon from '@/components/icons/CloseIcon.vue'
+import TheTextArea from '@/components/UI/TheTextArea.vue'
 export default {
   name: 'AddItem',
+  components: { AddIcon, CloseIcon, TheTextArea },
   props: {
     columnId: {type: [Number, String]},
     isNewColumn: {type: Boolean}
@@ -39,14 +43,10 @@ export default {
     focus
   },
   created() {
-    // this.$refs.addingItem.focus()
   },
 
   mounted() {
-    // this.$refs
-    // console.log(this.$refs.card);
-    // console.log(this.$refs.addingItem);
-    // this.$refs.addingItem.focus()
+  
   },
   data() {
     return {
@@ -69,13 +69,26 @@ export default {
     }
   },
   methods: {
+    ...mapActions(useCardsStore, ['addCardTitle']),
+    ...mapActions(useColumnsStore, ['addColumn']),
+
+    setItemText(str) {
+      this.itemText = str
+    },
+    setRow() {
+      
+    },
+    closeAddMode() {
+      this.isAdd = false
+      this.itemText = ''
+    },
     addItem() {
-      // this.isAdd = true
-      console.log(this.isNewColumn);
+      this.isAdd = true
+      // Перевіряемо - колонка чи картка і додаємо відповідний елемент 
       this.isNewColumn
-      ? this.columnsStore.addColumn(this.itemText)
-      : this.cardsStore.addCard(this.newCard)
-      // console.log(this.$refs.addingItem);
+      ? this.addColumn(this.itemText)
+      : this.addCardTitle(this.newCard)
+      this.itemText = ''
     }
   },
   watch: {

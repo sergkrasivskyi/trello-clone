@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import TheColumn from '@/components/TheColumn.vue'
 import AddItem from '@/components/AddItem.vue'
 
-import { useColumnsStore } from '@/stores/column.js'
+import { useColumnsStore } from '@/stores/columns.js'
 import { useCardsStore } from '@/stores/cards.js'
 const columnsStore = useColumnsStore()
 const cardsStore = useCardsStore()
