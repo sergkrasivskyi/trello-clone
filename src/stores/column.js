@@ -4,11 +4,11 @@ import { defineStore } from "pinia";
 export const useColumnsStore = defineStore("columns", () => {
   const title = ref('');
 
-  const columnItem = { id: 4, title: "Just Do It1", columnId: 4};
+  const columnItem = { id: 4, title: "Empty title", columnId: 4};
   const columnItem1 = ref({
     id: 1,
-    title: "Just Do It1",
-    columnId: 1
+    title: "Need to do",
+    columnId: 1,
     // list: [
     //   { row: 1, text: "First card" },
     //   { row: 2, text: "Second card" },
@@ -18,7 +18,7 @@ export const useColumnsStore = defineStore("columns", () => {
   });
   const columnItem2 = ref({
     id: 2,
-    title: "Just Do It2",
+    title: "Goals",
     columnId: 2,
     // list: [
     //   { row: 1, text: "First card" },
@@ -29,7 +29,7 @@ export const useColumnsStore = defineStore("columns", () => {
   });
   const columnItem3 = ref({
     id: 3,
-    title: "Just Do It3",
+    title: "In Progress",
     columnId: 3,
     // list: [
     //   { row: 1, text: "First card" },

@@ -93,6 +93,15 @@ textarea.mod-list-name:focus {
 /* --- / header */
 
 /* list-card */
+.list-cards {
+    flex: 1 1 auto;
+    margin: 0 4px;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 4px;
+    z-index: 1;
+}
 .card-composer {
   padding-bottom: 8px;
 }
@@ -172,4 +181,36 @@ textarea.list-card-composer-textarea:focus {
     border: none;
     box-shadow: none;
     color: var(--ds-text-inverse,#fff);
+}
+
+/* icons */
+.icon-close:before {
+    content: "\e91c";
+}
+.cc-controls-section .icon-lg {
+    color: var(--ds-icon-subtle,#6b778c);
+}
+.icon-lg, .icon-md, .icon-sm {
+    color: var(--ds-icon,#42526e);
+}
+.icon-lg, .icon-md {
+    height: 32px;
+    line-height: 32px;
+    width: 32px;
+}
+.icon-lg {
+    font-size: 24px;
+}
+
+.icon-lg, .icon-md, .icon-sm {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-family: trellicons;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: bottom;
 }

@@ -20,7 +20,7 @@ const cardsStore = useCardsStore()
       > 
     </the-column> 
     <add-item
-     :isNewColumn="true"/>
+      :isNewColumn="true"/>
   </div>
 
   <!-- <RouterView /> -->
