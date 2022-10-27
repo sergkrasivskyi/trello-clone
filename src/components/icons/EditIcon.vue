@@ -15,5 +15,6 @@ export default {
 <style scoped>
 .edit-icon {
   display: inline-block;
+  cursor: pointer;
 }
 </style>

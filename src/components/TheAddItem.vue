@@ -7,20 +7,26 @@
         @change:modelValue="setItemText"
       ></the-text-area>
       <div class="cc-controls u-clearfix">
-        <div class="cc-controls-section">
-          <input class="nch-button nch-button--primary confirm mod-compact js-add-card" 
-            type="submit" value="Добавить карточку" 
-            @click="addItem">
-          <close-icon 
+        <div class="cc-controls-section flex items-center">
+          <!-- <input class="nch-button--primary confirm px-2 py-1" 
+            type="button" value="Добавить карточку" 
+            @click="addItem"> -->
+          <the-button 
+            type="button" 
+            @clickButton="addItem"
+          >Add new card</the-button>  
+          <close-icon class="ml-2"
           @click="closeAddMode"/>
         </div>
       </div>
     </div>
   </div>
-  <div class="card-composer-container" v-show="!isAdd" @click.stop="isAdd = true">
+  <div class="card-composer-container items-center" 
+      v-show="!isAdd" 
+      @click.stop="isAdd = true">
     <add-icon/>
     <a class="open-card-composer" href="#" ref="card"
-    >{{ `Add new ${itemName}` }}</a>
+      >{{ `Add new ${itemName}` }}</a>
   </div>
 </template>
 <script>
@@ -99,5 +105,6 @@ export default {
 }
 </script>  
 <style>
-
+/* додати загальний class="flex-auto" 
+прибрати зайві margin - візуально збільшує елемент*/
 </style>

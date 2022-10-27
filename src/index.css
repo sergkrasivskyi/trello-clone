@@ -35,7 +35,7 @@
   max-height: 100%;
   position: relative;
   white-space: normal;
-  padding-inline: 0.5rem;
+  padding-inline: 1rem;
   /* width: 100% !important; */
 }
 /* list-header */
@@ -95,11 +95,11 @@ textarea.mod-list-name:focus {
 /* list-card */
 .list-cards {
     flex: 1 1 auto;
-    margin: 0 4px;
+    /* margin: 0 4px; */
     min-height: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 0 4px;
+    /* padding: 0 4px; */
     z-index: 1;
 }
 .card-composer {
@@ -140,13 +140,15 @@ textarea.mod-list-name:focus {
 
 textarea.list-card-composer-textarea,
 textarea.list-card-composer-textarea:focus {
+  /* зробити загальну flex оболонку, щоб у разі збільшення контенту
+  усі елементи підлаштовувались і з'їзджали униз */
   /* background: none; */
   /* border: none; */
   /* box-shadow: none; */
-  height: auto;
+  /* height: auto; */
   margin-bottom: 4px;
   max-height: 162px;
-  min-height: 54px;
+  /* min-height: 54px; */
   overflow-y: auto;
   padding: 0.5rem;
 }
@@ -171,7 +173,7 @@ textarea.list-card-composer-textarea:focus {
 /* button after textarea */
 
 .atlaskit-portal-container .nch-button--primary, body .nch-button--primary {
-    background-color: var(--ds-background-brand-bold,#0079bf);
+    background-color: var(--ds-background-brand-bold,rgb(0, 121, 191));
     border: none;
     box-shadow: none;
     color: var(--ds-text-inverse,#fff);

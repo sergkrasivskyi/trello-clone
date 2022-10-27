@@ -2,9 +2,12 @@
   <div class="list-wrapper">
     <div class="list">
       <div class="list-header">
-        <div class="list-header-wrapper">
-          <the-text-area class="list-header-name mod-list-name"
-            placeholder="Enter the headline for this column!"
+        <div class="overflow-hidden ">
+          <the-text-area class="font-semibold h-auto max-h-64 min-h-[40px] bg-gray-200 overflow-hidden"
+            placeholder="Enter the headline for this column"
+            row="1"
+            col="30"
+            height="30"
             :modelValue="column.title"
             @change:modelValue="setColumnTitle"
           />
@@ -14,10 +17,8 @@
         v-for="card in viewedCards"
         :key="card.row"
         :card="card"
-        @click.left="moveUp(card)"
-        @click.right="moveDown(card)"
         />
-      <the-add-item
+      <the-add-item 
         :isNewColumn="false"
         :columnId="column.id"
       />

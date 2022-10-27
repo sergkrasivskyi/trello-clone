@@ -21,19 +21,13 @@ export const useCardsStore = defineStore("cards", () => {
 
   const cardsItems = computed(() => {
     const result = {};
-    // const subList = [];
     const list = [...cardsList.value];
-    // console.log("list:", list);
-    // console.log("list[0].columnId", list[0].columnId);
-    // console.log("list[1].columnId", list[1].columnId);
-    // console.log("list[2].columnId", list[2].columnId);
-    // console.log("list[3].columnId", list[3].columnId);
-    // console.log("list.length:", list.length);
-    // result = groupBy(list, )
-
     for (let i = 0; i < numberColumns.value; i++) {
       // розкладаеємо картки у кожну колонку згідно columnId
       result[i] = list.filter((card) => card.columnId === i + 1);
+      let row = 0
+      result[i].forEach(card => { card.row = row++ 
+      });
     }
     console.log("result", result);
     return result;
@@ -41,6 +35,9 @@ export const useCardsStore = defineStore("cards", () => {
 
   function addCardTitle(newCard) {
     cardsList.value.push({ ...newCard });
+  }
+  function editCardText(card) {
+    
   }
   function moveCards(direction, card, cardList) {
     // direction === 'Up'||'up'

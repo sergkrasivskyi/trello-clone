@@ -1,6 +1,6 @@
 <template>
-  <div class="list-card-details">
-    <textarea class="list-card-composer-textarea"
+  <div class="overflow-hidden py-2 px-1 z-10">
+    <textarea class="mb-1 max-h-40 p-2 overflow-y-auto"
       ref="addingItem"
       v-bind="$attrs"
       :value="modelValue"
