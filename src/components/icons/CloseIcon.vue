@@ -6,3 +6,13 @@
     </svg>
   </div>
 </template>
+<script>
+export default {
+  name: 'CloseIcon'
+}
+</script>
+<style scoped>
+.close-icon {
+  display: inline-block;
+}
+</style>

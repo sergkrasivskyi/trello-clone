@@ -1,7 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import TheColumn from '@/components/TheColumn.vue'
-import AddItem from '@/components/AddItem.vue'
+
 
 import { useColumnsStore } from '@/stores/columns.js'
 import { useCardsStore } from '@/stores/cards.js'
@@ -19,11 +17,10 @@ const cardsStore = useCardsStore()
       :cards="cardsStore.cardsList"
       > 
     </the-column> 
-    <add-item
+    <the-add-item
       :isNewColumn="true"/>
   </div>
 
-  <!-- <RouterView /> -->
 </template>
 
 <script>

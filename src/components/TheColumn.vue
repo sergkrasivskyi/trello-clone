@@ -3,13 +3,11 @@
     <div class="list">
       <div class="list-header">
         <div class="list-header-wrapper">
-          <!-- :class="{'is-editing': isEdit}" -->
-          <!-- @click="toEdit" -->
-          <textarea class="list-header-name mod-list-name"
-          
-          v-model="column.title"
-          >
-          </textarea>
+          <the-text-area class="list-header-name mod-list-name"
+            placeholder="Enter the headline for this column!"
+            :modelValue="column.title"
+            @change:modelValue="setColumnTitle"
+          />
         </div>
       </div>
       <the-item 
@@ -19,7 +17,7 @@
         @click.left="moveUp(card)"
         @click.right="moveDown(card)"
         />
-      <add-item
+      <the-add-item
         :isNewColumn="false"
         :columnId="column.id"
       />
@@ -30,13 +28,12 @@
 </template>
 
 <script>
-import TheItem from '@/components/TheItem.vue'
-import AddItem from '@/components/AddItem.vue'
-
+import { mapStores, mapActions } from 'pinia'
+import { useColumnsStore } from '@/stores/columns.js'
 
 export default {
   name: 'TheColumn',
-  components: {TheItem, AddItem},
+
   props: {
     title: {type: String,
             default:'Нужно сделать'},
@@ -53,7 +50,7 @@ export default {
     }
   },
   computed: {
-    // ...mapStores(useColumnStore),
+    ...mapStores(useColumnsStore),
     // ...mapState(useColumnStore, ['columnsList'])
     // title() {
 
@@ -76,6 +73,10 @@ export default {
   //   itemsList
   // },
   methods: {
+    setColumnTitle(str) {
+      let index = this.column.columnId - 1
+      this.columnsStore.columnsList[index].title = str
+    },
     // toEdit() {
     //   this.isEdit = true
     // },

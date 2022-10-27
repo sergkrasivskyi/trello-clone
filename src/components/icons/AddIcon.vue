@@ -6,3 +6,13 @@
     </svg>
   </div >
 </template>
+<script>
+export default {
+  name: 'AddIcon'
+}
+</script>
+<style scoped>
+.add-icon {
+  display: inline-block;
+}
+</style>

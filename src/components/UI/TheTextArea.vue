@@ -1,10 +1,10 @@
 <template>
   <div class="list-card-details">
     <textarea class="list-card-composer-textarea"
-    ref="addingItem"
-    v-bind="$attrs"
-    :value="modelValue"
-    @change="changeInput"
+      ref="addingItem"
+      v-bind="$attrs"
+      :value="modelValue"
+      @change="changeInput"
     />
   
   </div>

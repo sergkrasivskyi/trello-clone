@@ -12,7 +12,7 @@ export default {
 <template>
     <div class="list-cards">
       <a class="list-card" href="#" draggable="true">
-        <div class="list-card-cover"></div><span class="icon-sm icon-edit list-card-operation dark-hover"></span>
+        <div class="list-card-cover"></div><span class="icon-sm icon-edit list-card-operation dark-hover"><edit-icon></edit-icon></span>
         <div class="list-card-stickers-area hide">
           <div class="stickers"></div>
         </div>
@@ -23,6 +23,7 @@ export default {
         
         <!-- </div>  -->
         {{card.text}}
+        
       </a>
     </div>
 

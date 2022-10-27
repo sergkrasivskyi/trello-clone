@@ -7,3 +7,13 @@
     </svg>
   </div>
 </template>
+<script>
+export default {
+  name: 'EditIcon'
+}
+</script>
+<style scoped>
+.edit-icon {
+  display: inline-block;
+}
+</style>

@@ -3,7 +3,7 @@
     <div class="list-card">
       <the-text-area
         :modelValue="itemText"
-        placeholder="Enter the headline for this card"
+        :placeholder="`Enter the headline for this ${itemName}`"
         @change:modelValue="setItemText"
       ></the-text-area>
       <div class="cc-controls u-clearfix">
@@ -20,19 +20,16 @@
   <div class="card-composer-container" v-show="!isAdd" @click.stop="isAdd = true">
     <add-icon/>
     <a class="open-card-composer" href="#" ref="card"
-    >{{ itemTitle }}</a>
+    >{{ `Add new ${itemName}` }}</a>
   </div>
 </template>
 <script>
 import { mapStores, mapActions} from 'pinia'
 import { useCardsStore } from '@/stores/cards'
 import { useColumnsStore } from '@/stores/columns'
-import AddIcon from '@/components/icons/AddIcon.vue'
-import CloseIcon from '@/components/icons/CloseIcon.vue'
-import TheTextArea from '@/components/UI/TheTextArea.vue'
+
 export default {
-  name: 'AddItem',
-  components: { AddIcon, CloseIcon, TheTextArea },
+  name: 'TheAddItem',
   props: {
     columnId: {type: [Number, String]},
     isNewColumn: {type: Boolean}
@@ -61,16 +58,15 @@ export default {
     newCard() {
       return { columnId: this.columnId, row: 0, text: this.itemText }
     },
-
-    itemTitle() {
+    itemName() {
       return this.isNewColumn
-        ? 'Add new column'
-        : 'Add new card'
-    }
+        ? 'column'
+        : 'card'
+    },
   },
   methods: {
-    ...mapActions(useCardsStore, ['addCardTitle']),
     ...mapActions(useColumnsStore, ['addColumn']),
+    ...mapActions(useCardsStore, ['addCardTitle']),
 
     setItemText(str) {
       this.itemText = str
