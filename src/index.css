@@ -31,6 +31,7 @@
   border-radius: 3px;
   box-sizing: border-box;
   display: flex;
+  row-gap: 0.5rem;
   flex-direction: column;
   max-height: 100%;
   position: relative;
@@ -42,7 +43,7 @@
 .list-header {
   flex: 0 0 auto;
   min-height: 20px;
-  padding: 10px 8px;
+  /* padding: 10px 8px; */
   position: relative;
 }
 .list-header-wrapper {
@@ -163,8 +164,8 @@ textarea.list-card-composer-textarea:focus {
   color: var(--ds-text-subtle, #5e6c84);
   display: block;
   flex: 1 0 auto;
-  margin: 2px 0 8px 8px;
-  padding: 4px 8px;
+  /* margin: 2px 0 8px 8px; */
+  /* padding: 4px 8px; */
   position: relative;
   text-decoration: none;
   -webkit-user-select: none;

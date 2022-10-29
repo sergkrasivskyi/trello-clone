@@ -1,6 +1,4 @@
 <script setup>
-
-
 import { useColumnsStore } from '@/stores/columns.js'
 import { useCardsStore } from '@/stores/cards.js'
 const columnsStore = useColumnsStore()
@@ -9,12 +7,12 @@ const cardsStore = useCardsStore()
 </script>
 
 <template>
-  <div class="wrapper flex ">
+  <div class="wrapper h-[100vh] pt-4 pl-4 flex gap-2 ">
     <the-column
       v-for="column in columnsStore.columnsList"
-      :key="column.id"
+      :key="column.columnId"
       :column="column"
-      :cards="cardsStore.cardsList"
+      :cards="cardsStore.cardsItems[column.columnId - 1]"
       > 
     </the-column> 
     <the-add-item
@@ -30,8 +28,6 @@ const cardsStore = useCardsStore()
 
 <style scoped>
 .wrapper {
-  /* width: 100vw; */
-  height: 100vh;
   background-image: url('@/images/bg-lg-photo.jpg');
   background-repeat: no-repeat;
   background-size: cover;

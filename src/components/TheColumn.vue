@@ -1,7 +1,7 @@
 <template>
-  <div class="list-wrapper">
-    <div class="list">
-      <div class="list-header">
+  <div class="box-border inline-block h-full mx-1 w-64">
+    <div class="bg-sky-50 rounded-md box-border flex gap-2 flex-col max-h-full px-4 relative py-4">
+      <div class="grow-0 shrink-0 basis-auto min-h-[20px] relative">
         <div class="overflow-hidden ">
           <the-text-area class="font-semibold h-auto max-h-64 min-h-[40px] bg-gray-200 overflow-hidden"
             placeholder="Enter the headline for this column"
@@ -13,8 +13,9 @@
           />
         </div>
       </div>
-      <the-item 
-        v-for="card in viewedCards"
+      <!-- v-for="card in viewedCards" -->
+      <the-card 
+        v-for="card in cards"
         :key="card.row"
         :card="card"
         />
@@ -24,7 +25,6 @@
       />
     </div>
   </div>
-
 
 </template>
 
@@ -40,6 +40,7 @@ export default {
             default:'Нужно сделать'},
     currentColumn: {type: [Number, String], default: 0},
     column: { type: Object, default: {id: 0, title: 'Empty title', columnId: 0 }},
+    // cards: { type: Array, default: [{ columnId: 0, row: 0, text: "Empty card" }]},
     cards: { type: Array, default: [{ columnId: 0, row: 0, text: "Empty card" }]},
   },
   data() {
@@ -75,8 +76,10 @@ export default {
   // },
   methods: {
     setColumnTitle(str) {
-      let index = this.column.columnId - 1
-      this.columnsStore.columnsList[index].title = str
+      if (str) {
+        let index = this.column.columnId - 1
+        this.columnsStore.columnsList[index].title = str
+      }
     },
     // toEdit() {
     //   this.isEdit = true

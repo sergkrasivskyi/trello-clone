@@ -1,16 +1,13 @@
 <template>
-  <div class="card-composer" v-show="isAdd">
-    <div class="list-card">
+  <div class="pb-2" v-show="isAdd">
+    <div class="rounded-md shadow cursor-pointer block mb-2 max-w-xs min-h-[20px] relative z-0">
       <the-text-area
         :modelValue="itemText"
         :placeholder="`Enter the headline for this ${itemName}`"
         @change:modelValue="setItemText"
       ></the-text-area>
-      <div class="cc-controls u-clearfix">
-        <div class="cc-controls-section flex items-center">
-          <!-- <input class="nch-button--primary confirm px-2 py-1" 
-            type="button" value="Добавить карточку" 
-            @click="addItem"> -->
+      <div >
+        <div class="flex items-center">
           <the-button 
             type="button" 
             @clickButton="addItem"
@@ -21,21 +18,27 @@
       </div>
     </div>
   </div>
-  <div class="card-composer-container items-center" 
+  <div class="flex gap-2 h-9 items-center cursor-pointer hover:bg-sky-500 rounded-md p-2 bg-sky-200 " 
       v-show="!isAdd" 
       @click.stop="isAdd = true">
-    <add-icon/>
-    <a class="open-card-composer" href="#" ref="card"
-      >{{ `Add new ${itemName}` }}</a>
+    <!-- <add-icon/> -->
+    <Icon icon="ri:play-list-add-line"/>
+    <p ref="card"
+      >{{ `Add new ${itemName}` }}</p>
   </div>
 </template>
 <script>
+import { Icon } from '@iconify/vue';
+
 import { mapStores, mapActions} from 'pinia'
 import { useCardsStore } from '@/stores/cards'
 import { useColumnsStore } from '@/stores/columns'
 
 export default {
   name: 'TheAddItem',
+  components: {
+    Icon
+  },
   props: {
     columnId: {type: [Number, String]},
     isNewColumn: {type: Boolean}
@@ -62,6 +65,8 @@ export default {
     ...mapStores(useCardsStore, useColumnsStore),
 
     newCard() {
+      // Додати визначення row
+      // ! let row = 
       return { columnId: this.columnId, row: 0, text: this.itemText }
     },
     itemName() {
@@ -86,11 +91,13 @@ export default {
     },
     addItem() {
       this.isAdd = true
-      // Перевіряемо - колонка чи картка і додаємо відповідний елемент 
-      this.isNewColumn
-      ? this.addColumn(this.itemText)
-      : this.addCardTitle(this.newCard)
-      this.itemText = ''
+      // Перевіряемо - колонка чи картка і додаємо відповідний елемент
+      if (this.itemText !== '') {
+        this.isNewColumn
+        ? this.addColumn(this.itemText)
+        : this.addCardTitle(this.newCard)
+        this.itemText = ''
+      }
     }
   },
   watch: {

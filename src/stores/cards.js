@@ -7,10 +7,10 @@ import {groupBy} from 'lodash'
 // завантажити з axios дату про users та вивести її в аплікації
 
 export const useCardsStore = defineStore("cards", () => {
-  const card1 = ref({ columnId: 3, row: 0, text: "First card" });
-  const card2 = ref({ columnId: 2, row: 0, text: "Second card" });
-  const card3 = ref({ columnId: 1, row: 0, text: "Third card" });
-  const card4 = ref({ columnId: 1, row: 0, text: "Fouth card" });
+  const card1 = ref({ columnId: 3, row: 120, text: "First card" });
+  const card2 = ref({ columnId: 2, row: 100, text: "Second card" });
+  const card3 = ref({ columnId: 1, row: 15, text: "Third card" });
+  const card4 = ref({ columnId: 1, row: 10, text: "Fouth card" });
   const cardsList = ref([card1.value, card2.value, card3.value, card4.value]);
 
   // Отримуємо доступ до ColumnStore
@@ -29,7 +29,7 @@ export const useCardsStore = defineStore("cards", () => {
       result[i].forEach(card => { card.row = row++ 
       });
     }
-    console.log("result", result);
+    console.log("cardsItems: ", result);
     return result;
   });
 
